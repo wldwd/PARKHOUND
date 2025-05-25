@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://openlayers.org/favicon.ico" />
+    <title>ParkHound: Find great places to take your dog!</title>
+
+    <!-- your main stylesheet (which @imports OL CSS) -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Nav from W3 schools -->
+    <div class="topnav" id="myTopnav">
+      <div class="brand">
+        ParkHound 🐾
+        <span class="tagline">Find great places with your dog!</span>
+      </div>
+      <a href="#home" class="active">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a class="icon" onclick="toggleNav()">&#9776;</a>
+    </div>
+
+    <!--Map and Popup -->
+    <div id="map" class="map"></div>
+    <div id="popup" class="ol-popup">
+      <div id="popup-content"></div>
+    </div>
+
+    <!-- OpenLayers + my map code -->
+    <script type="module" src="./main.js"></script>
+
+    <!-- Nav script: as a module -->
+    <script type="module" src="./nav.js"></script>
+  </body>
+</html>

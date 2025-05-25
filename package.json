@@ -1,0 +1,19 @@
+{
+  "name": "parkhound",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@maptiler/geocoding-control": "^2.1.6",
+    "@maptiler/sdk": "^3.2.3",
+    "@turf/turf": "^7.2.0",
+    "ol": "latest",
+    "ol-geocoder": "^4.3.3"
+  }
+}

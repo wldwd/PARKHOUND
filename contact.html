@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – ParkHound 🐾</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Nav (same as index & about) -->
+    <div class="topnav" id="myTopnav">
+      <div class="brand">
+        ParkHound 🐾
+        <span class="tagline">Find great places with your dog!</span>
+      </div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a class="icon" onclick="toggleNav()">&#9776;</a>
+    </div>
+
+    <!-- Main content -->
+    <main style="padding: calc(50px + 1rem) 1rem 1rem">
+      <h1>Get in Touch</h1>
+      <p>Have feedback, a park to add, or just wanna say hi? Drop us a line!</p>
+
+      <form
+        action="mailto:hello@parkhound.com"
+        method="post"
+        enctype="text/plain"
+        style="max-width: 500px; margin-top: 1rem"
+      >
+        <label for="name">Your Name</label><br />
+        <input
+          type="text"
+          id="name"
+          name="Name"
+          required
+          style="width: 100%; padding: 8px; margin-bottom: 12px"
+        />
+
+        <label for="email">Your Email</label><br />
+        <input
+          type="email"
+          id="email"
+          name="Email"
+          required
+          style="width: 100%; padding: 8px; margin-bottom: 12px"
+        />
+
+        <label for="message">Message</label><br />
+        <textarea
+          id="message"
+          name="Message"
+          rows="5"
+          required
+          style="width: 100%; padding: 8px; margin-bottom: 12px"
+        ></textarea>
+
+        <button
+          type="submit"
+          style="
+            padding: 10px 20px;
+            background-color: #04aa6d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Send
+        </button>
+      </form>
+
+      <p style="margin-top: 2rem">
+        Or email us directly at
+        <a href="mailto:hello@parkhound.com">hello@parkhound.com</a>
+      </p>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 1rem; font-size: 0.9rem">
+      © 2025 ParkHound. Made with love for you & your best friend.
+    </footer>
+
+    <!-- Nav script -->
+    <script type="module" src="./nav.js"></script>
+  </body>
+</html>
