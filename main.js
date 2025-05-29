@@ -49,7 +49,7 @@ export const overlay = new Overlay({
   },
 });
 
-// Vector layer for dog parks GeoJSON data
+// Vector layer for dog parks GeoJSON data.
 const format = new GeoJSON();
 const dogParksLayer = new VectorLayer({
   source: new VectorSource({
