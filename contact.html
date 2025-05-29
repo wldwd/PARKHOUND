@@ -3,87 +3,360 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact – ParkHound 🐾</title>
+    <link rel="icon" href="https://openlayers.org/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Contact PARKHOUND</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Nav (same as index & about) -->
+    <!-- Nav bar -->
     <div class="topnav" id="myTopnav">
-      <div class="brand">
-        ParkHound 🐾
+      <a href="/" class="brand">
+        PARKHOUND 🐶
         <span class="tagline">Find great places with your dog!</span>
-      </div>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-      <a class="icon" onclick="toggleNav()">&#9776;</a>
+      </a>
+
+      <a class="navlink active" href="contact.html">Contact</a>
+      <a class="navlink" href="about.html">About</a>
+      <a class="icon" id="navToggle">&#9776;</a>
     </div>
 
-    <!-- Main content -->
-    <main style="padding: calc(50px + 1rem) 1rem 1rem">
-      <h1>Get in Touch</h1>
-      <p>Have feedback, a park to add, or just wanna say hi? Drop us a line!</p>
+    <!-- Main content container -->
+    <div
+      style="
+        margin-top: 110px;
+        padding: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      <h2>Contact PARKHOUND</h2>
+      <p>
+        We'd love to hear from you! Whether you have questions about the app,
+        want to report a missing dog park, or have suggestions for improvement,
+        please don't hesitate to get in touch.
+      </p>
 
+      <h3>Get in Touch</h3>
+
+      <!-- contact using EmailJS integration  -->
       <form
-        action="mailto:hello@parkhound.com"
-        method="post"
-        enctype="text/plain"
-        style="max-width: 500px; margin-top: 1rem"
+        id="contact-form"
+        method="POST"
+        style="
+          background-color: #f8f9fa;
+          padding: 30px;
+          border-radius: 8px;
+          border-left: 4px solid #600b94;
+          margin: 30px 0;
+        "
       >
-        <label for="name">Your Name</label><br />
-        <input
-          type="text"
-          id="name"
-          name="Name"
-          required
-          style="width: 100%; padding: 8px; margin-bottom: 12px"
-        />
+        <!-- Name field -->
+        <div style="margin-bottom: 20px">
+          <label
+            for="name"
+            style="
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+              color: #333;
+            "
+            >Name *</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              font-family: inherit;
+              font-size: 14px;
+            "
+          />
+        </div>
+        <!-- Email field -->
+        <div style="margin-bottom: 20px">
+          <label
+            for="email"
+            style="
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+              color: #333;
+            "
+            >Email *</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              font-family: inherit;
+              font-size: 14px;
+            "
+          />
+        </div>
+        <!-- Subject dropdown -->
+        <div style="margin-bottom: 20px">
+          <label
+            for="subject"
+            style="
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+              color: #333;
+            "
+            >Subject *</label
+          >
+          <select
+            id="subject"
+            name="subject"
+            required
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              font-family: inherit;
+              font-size: 14px;
+              background-color: white;
+            "
+          >
+            <option value="">Please select a topic</option>
+            <option value="general">General inquiry or feedback</option>
+            <option value="missing-park">Report a missing dog park</option>
+            <option value="technical">Technical issue or bug report</option>
+            <option value="partnership">Local government partnership</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
-        <label for="email">Your Email</label><br />
-        <input
-          type="email"
-          id="email"
-          name="Email"
-          required
-          style="width: 100%; padding: 8px; margin-bottom: 12px"
-        />
+        <!-- Optional location field -->
+        <div style="margin-bottom: 20px">
+          <label
+            for="location"
+            style="
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+              color: #333;
+            "
+            >Location (if relevant)</label
+          >
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="e.g. Suburb, local government area, or park name"
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              font-family: inherit;
+              font-size: 14px;
+            "
+          />
+        </div>
 
-        <label for="message">Message</label><br />
-        <textarea
-          id="message"
-          name="Message"
-          rows="5"
-          required
-          style="width: 100%; padding: 8px; margin-bottom: 12px"
-        ></textarea>
+        <!-- Message textarea -->
+        <div style="margin-bottom: 25px">
+          <label
+            for="message"
+            style="
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+              color: #333;
+            "
+            >Message *</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            placeholder="Please provide details about your inquiry, feedback, or the missing park information..."
+            style="
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              font-family: inherit;
+              font-size: 14px;
+              resize: vertical;
+            "
+          ></textarea>
+        </div>
 
+        <!-- Submit button -->
         <button
           type="submit"
+          id="submit-btn"
           style="
-            padding: 10px 20px;
-            background-color: #04aa6d;
+            background-color: #600b94;
             color: white;
+            padding: 12px 30px;
             border: none;
             border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.3s;
           "
         >
-          Send
+          <i class="fas fa-paper-plane" style="margin-right: 8px"></i>Send
+          Message
         </button>
+
+        <!-- Status message container -->
+        <div
+          id="form-status"
+          style="
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+          "
+        ></div>
       </form>
 
-      <p style="margin-top: 2rem">
-        Or email us directly at
-        <a href="mailto:hello@parkhound.com">hello@parkhound.com</a>
-      </p>
-    </main>
+      <!-- EmailJS Integration -->
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <script>
+        // Initialise EmailJS with public key
+        emailjs.init("MY_PUBLIC_KEY"); // Obviously I haven't put a public key here, so the form doesn't actually do anything :)
 
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 1rem; font-size: 0.9rem">
-      © 2025 ParkHound. Made with love for you & your best friend.
-    </footer>
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
 
-    <!-- Nav script -->
+            const submitBtn = document.getElementById("submit-btn");
+            const formStatus = document.getElementById("form-status");
+
+            // Change button text to show loading
+            submitBtn.innerHTML =
+              '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i>Sending...';
+            submitBtn.disabled = true;
+
+            // Send the form using EmailJS
+            emailjs
+              .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+              .then(function (response) {
+                // Success
+                formStatus.style.display = "block";
+                formStatus.style.backgroundColor = "#d4edda";
+                formStatus.style.color = "#155724";
+                formStatus.style.border = "1px solid #c3e6cb";
+                formStatus.innerHTML =
+                  '<i class="fas fa-check-circle" style="margin-right: 8px;"></i>Thank you! Your message has been sent successfully. We\'ll get back to you within 2-3 business days.';
+
+                // Reset form
+                document.getElementById("contact-form").reset();
+
+                // Reset button
+                submitBtn.innerHTML =
+                  '<i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Send Message';
+                submitBtn.disabled = false;
+              })
+              .catch(function (error) {
+                // Error
+                formStatus.style.display = "block";
+                formStatus.style.backgroundColor = "#f8d7da";
+                formStatus.style.color = "#721c24";
+                formStatus.style.border = "1px solid #f5c6cb";
+                formStatus.innerHTML =
+                  '<i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>Sorry, there was an error sending your message. Please try again or email us directly at hello@parkhound.com.au';
+
+                // Reset button
+                submitBtn.innerHTML =
+                  '<i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Send Message';
+                submitBtn.disabled = false;
+              });
+          });
+      </script>
+
+      <h3>What to Include</h3>
+      <p>To help us respond quickly and effectively:</p>
+      <ul>
+        <li>
+          <strong>For missing parks:</strong> Include the park name, address or
+          location description, local government area, and any details about
+          facilities or restrictions
+        </li>
+        <li>
+          <strong>For technical issues:</strong> Describe the problem, what
+          device/browser you're using, and any error messages
+        </li>
+        <li>
+          <strong>For partnerships:</strong> Let us know your local government
+          area and contact details
+        </li>
+      </ul>
+
+      <h3>Response Times</h3>
+      <p>We aim to respond to all messages within 2-3 business days.</p>
+
+      <div
+        style="
+          background-color: #f3bfeb;
+          padding: 20px;
+          border-radius: 8px;
+          margin: 30px 0;
+          border-left: 4px solid #e474fd;
+        "
+      >
+        <h4 style="margin-top: 0; color: #7c0372">
+          <i class="fas fa-envelope" style="margin-right: 8px"></i>Prefer Email?
+        </h4>
+        <p style="margin-bottom: 0; color: #720a8c">
+          You can also reach us directly at
+          <a
+            href="mailto:hello@parkhound.com.au"
+            style="color: #600b94; font-weight: 600"
+            >hello@parkhound.com.au</a
+          >
+          <!--This is a fake email address :)*/-->
+        </p>
+      </div>
+
+      <div
+        style="
+          background-color: #f0e5fa;
+          padding: 20px;
+          border-radius: 8px;
+          margin: 30px 0;
+          border-left: 4px solid #a728a1;
+        "
+      >
+        <h4 style="margin-top: 0; color: #5f17a2">
+          <i class="fas fa-lightbulb" style="margin-right: 8px"></i>Community
+          Driven
+        </h4>
+        <p style="margin-bottom: 0; color: #461557">
+          PARKHOUND is built by dog lovers, for dog lovers. Your feedback and
+          contributions help make this resource better for the entire Western
+          Australian dog community!
+        </p>
+      </div>
+    </div>
+
+    <!-- Nav script: as a module -->
     <script type="module" src="./nav.js"></script>
   </body>
 </html>

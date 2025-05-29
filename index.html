@@ -4,23 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="https://openlayers.org/favicon.ico" />
-    <title>ParkHound: Find great places to take your dog!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>PARKHOUND: Find great places to take your dog!</title>
 
-    <!-- your main stylesheet (which @imports OL CSS) -->
+    <!-- Main stylesheet (which @imports OL CSS) -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Nav from W3 schools -->
     <div class="topnav" id="myTopnav">
-      <div class="brand">
-        ParkHound 🐾
+      <a href="/" class="brand">
+        PARKHOUND 🐶
         <span class="tagline">Find great places with your dog!</span>
+      </a>
+      <div class="dropdown">
+        <span>How to use this map</span>
+        <div class="dropdown-content">
+          <p>
+            Dog parks appear as
+            <span style="color: rgba(196, 111, 247, 1)">purple</span> areas on
+            the map. Click on any purple area to see details about that dog park
+            and get directions.
+          </p>
+          <p>
+            To find dog parks in a specific area, type a suburb name or local
+            government area into the search box on the left, then press enter.
+          </p>
+          <p>
+            The map will zoom to your chosen location and highlight the dog
+            parks there in
+            <span style="color: rgba(255, 20, 147, 1)">pink</span>.
+          </p>
+          <p>
+            A list will also appear with the names of parks in that area. Click
+            on the names to see them highlighted in
+            <span style="color: rgb(255, 0, 255)">fuschia</span>
+            on the map.
+          </p>
+        </div>
       </div>
-      <a href="#home" class="active">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-      <a class="icon" onclick="toggleNav()">&#9776;</a>
+      <a class="navlink" href="contact.html">Contact</a>
+      <a class="navlink" href="about.html">About</a>
+      <a class="icon" id="navToggle">&#9776;</a>
     </div>
 
     <!--Map and Popup -->
@@ -28,8 +56,9 @@
     <div id="popup" class="ol-popup">
       <div id="popup-content"></div>
     </div>
+    <div id="parklist"></div>
 
-    <!-- OpenLayers + my map code -->
+    <!-- OpenLayers and my map code -->
     <script type="module" src="./main.js"></script>
 
     <!-- Nav script: as a module -->
