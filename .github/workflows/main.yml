@@ -30,3 +30,6 @@ jobs:
       - name: Vite Github Pages Deployer
         uses: skywarth/vite-github-pages-deployer@master
         id: deploy_to_pages
+        env:
+          VITE_MAPTILER_API_KEY: ${{ vars.VITE_MAPTILER_API_KEY }}
+
