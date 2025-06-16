@@ -43,9 +43,9 @@
 
       <h3>Get in Touch</h3>
 
-      <!-- contact using EmailJS integration  -->
+      <!-- Formspree contact form -->
       <form
-        id="contact-form"
+        action="action="https://formspree.io/f/xwpbbyod"
         method="POST"
         style="
           background-color: #f8f9fa;
@@ -55,6 +55,19 @@
           margin: 30px 0;
         "
       >
+        <!-- Hidden fields for Formspree -->
+        <input
+          type="hidden"
+          name="_subject"
+          value="New contact from PARKHOUND"
+        />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://wldwd.github.io/PARKHOUND/contact.html?success=true"
+        />
+        <input type="hidden" name="_captcha" value="false" />
+
         <!-- Name field -->
         <div style="margin-bottom: 20px">
           <label
@@ -82,6 +95,7 @@
             "
           />
         </div>
+
         <!-- Email field -->
         <div style="margin-bottom: 20px">
           <label
@@ -109,6 +123,7 @@
             "
           />
         </div>
+
         <!-- Subject dropdown -->
         <div style="margin-bottom: 20px">
           <label
@@ -205,7 +220,6 @@
         <!-- Submit button -->
         <button
           type="submit"
-          id="submit-btn"
           style="
             background-color: #600b94;
             color: white;
@@ -222,73 +236,38 @@
           <i class="fas fa-paper-plane" style="margin-right: 8px"></i>Send
           Message
         </button>
-
-        <!-- Status message container -->
-        <div
-          id="form-status"
-          style="
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 4px;
-            display: none;
-          "
-        ></div>
       </form>
 
-      <!-- EmailJS Integration -->
-      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <!-- Success message (shown when redirected back with ?success=true) -->
+      <div
+        id="success-message"
+        style="
+          display: none;
+          background-color: #d4edda;
+          color: #155724;
+          padding: 20px;
+          border-radius: 8px;
+          margin: 20px 0;
+          border-left: 4px solid #28a745;
+        "
+      >
+        <i class="fas fa-check-circle" style="margin-right: 8px"></i>
+        <strong>Thank you!</strong> Your message has been sent successfully.
+        We'll get back to you within 2-3 business days.
+      </div>
+
       <script>
-        // Initialise EmailJS with public key
-        emailjs.init("MY_PUBLIC_KEY"); // Obviously I haven't put a public key here, so the form doesn't actually do anything :)
-
-        document
-          .getElementById("contact-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const submitBtn = document.getElementById("submit-btn");
-            const formStatus = document.getElementById("form-status");
-
-            // Change button text to show loading
-            submitBtn.innerHTML =
-              '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i>Sending...';
-            submitBtn.disabled = true;
-
-            // Send the form using EmailJS
-            emailjs
-              .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-              .then(function (response) {
-                // Success
-                formStatus.style.display = "block";
-                formStatus.style.backgroundColor = "#d4edda";
-                formStatus.style.color = "#155724";
-                formStatus.style.border = "1px solid #c3e6cb";
-                formStatus.innerHTML =
-                  '<i class="fas fa-check-circle" style="margin-right: 8px;"></i>Thank you! Your message has been sent successfully. We\'ll get back to you within 2-3 business days.';
-
-                // Reset form
-                document.getElementById("contact-form").reset();
-
-                // Reset button
-                submitBtn.innerHTML =
-                  '<i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Send Message';
-                submitBtn.disabled = false;
-              })
-              .catch(function (error) {
-                // Error
-                formStatus.style.display = "block";
-                formStatus.style.backgroundColor = "#f8d7da";
-                formStatus.style.color = "#721c24";
-                formStatus.style.border = "1px solid #f5c6cb";
-                formStatus.innerHTML =
-                  '<i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>Sorry, there was an error sending your message. Please try again or email us directly at hello@parkhound.com.au';
-
-                // Reset button
-                submitBtn.innerHTML =
-                  '<i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Send Message';
-                submitBtn.disabled = false;
-              });
-          });
+        // Show success message if redirected back with success parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("success") === "true") {
+          document.getElementById("success-message").style.display = "block";
+          // Remove the success parameter from URL for cleaner appearance
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          );
+        }
       </script>
 
       <h3>What to Include</h3>
@@ -314,29 +293,6 @@
 
       <div
         style="
-          background-color: #f3bfeb;
-          padding: 20px;
-          border-radius: 8px;
-          margin: 30px 0;
-          border-left: 4px solid #e474fd;
-        "
-      >
-        <h4 style="margin-top: 0; color: #7c0372">
-          <i class="fas fa-envelope" style="margin-right: 8px"></i>Prefer Email?
-        </h4>
-        <p style="margin-bottom: 0; color: #720a8c">
-          You can also reach us directly at
-          <a
-            href="mailto:hello@parkhound.com.au"
-            style="color: #600b94; font-weight: 600"
-            >hello@parkhound.com.au</a
-          >
-          <!--This is a fake email address :)*/-->
-        </p>
-      </div>
-
-      <div
-        style="
           background-color: #f0e5fa;
           padding: 20px;
           border-radius: 8px;
@@ -355,7 +311,6 @@
         </p>
       </div>
     </div>
-
     <!-- Nav script: as a module -->
     <script type="module" src="./nav.js"></script>
   </body>
