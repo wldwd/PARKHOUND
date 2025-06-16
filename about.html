@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://openlayers.org/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>About PARKHOUND</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Nav bar -->
+    <div class="topnav" id="myTopnav">
+      <a href="/" class="brand">
+        PARKHOUND 🐶
+        <span class="tagline">Find great places with your dog!</span>
+      </a>
+
+      <a class="navlink" href="contact.html">Contact</a>
+      <a class="navlink active" href="about.html">About</a>
+      <a class="icon" id="navToggle">&#9776;</a>
+    </div>
+
+    <!-- Main content area -->
+    <div
+      style="
+        margin-top: 110px;
+        padding: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      <h2>About PARKHOUND</h2>
+      <p>
+        Almost half of all Australian households include at least one dog, and
+        it's common knowledge that dogs do great things for the wellbeing of
+        their owners. A study of dog owners in Perth showed that dogs actually
+        benefit the whole community by increasing opportunities for people to
+        socialise, make new friends and form long term relationships that have
+        positive flow on effects for the whole community.
+      </p>
+
+      <p>
+        PARKHOUND was created to help Western Australians discover new off-lead
+        places to explore with their dog, while hopefully making new friends
+        along the way.
+      </p>
+
+      <h2>About the app</h2>
+      <p>
+        PARKHOUND aims to respond to a significant gap in the online information
+        available to Western Australian dog owners. There is currently no
+        comprehensive, searchable resource to find dog exercise areas. A dog
+        owner looking for a place to take their pet will find information is
+        presently fragmented across various blogs, incomplete Google Maps search
+        results, and information in a variety of formats on individual local
+        government websites.
+      </p>
+
+      <h3>Current Coverage</h3>
+      <p><strong>7 Perth Local Government Areas:</strong></p>
+      <ul>
+        <li>City of Bayswater</li>
+        <li>City of Canning</li>
+        <li>City of Cockburn</li>
+        <li>Town of East Fremantle</li>
+        <li>City of Fremantle</li>
+        <li>City of Melville</li>
+        <li>City of South Perth</li>
+      </ul>
+
+      <h3>Building the map</h3>
+      <ul>
+        <li>
+          Most of PARKHOUND's data is accessed via official local government
+          website API endpoints.
+        </li>
+        <li>
+          Town of East Fremantle's dog parks were added manually and checked
+          against council information.
+        </li>
+        <li>
+          The local government data was then combined with OpenStreetMap to show
+          the park boundaries.
+        </li>
+        <li>Contact details were sourced from WALGA's 2024 directory.</li>
+      </ul>
+
+      <h3>Future Expansion</h3>
+      <p>
+        The goal is that PARKHOUND covers all of Western Australia. We will
+        reach out to the remaining 130 local governments to request access to
+        their geospatial data for dog exercise areas, ensuring consistency and
+        faster updates.
+      </p>
+
+      <details>
+        <summary>Technical Details & Data Sources 🤓</summary>
+        <p><strong>Data Sources:</strong></p>
+        <ul>
+          <li>
+            <a
+              href="https://www.bayswater.wa.gov.au/community/rangers-and-security/pets-and-animals/dog-exercise-areas"
+              >Dog Exercise Areas - City of Bayswater</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.canning.wa.gov.au/recreation-and-community/parks-and-reserves/dog-exercise-parks/"
+              >Dog exercise parks - City of Canning</a
+            >
+          </li>
+          <li>
+            <a href="https://www.cockburn.wa.gov.au/WhereCanITakeMyDog"
+              >Dog Exercise Areas - City of Cockburn</a
+            >
+          </li>
+          <li>
+            <a href="https://www.fremantle.wa.gov.au/dogzones"
+              >Dog Zones - City of Fremantle</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.melvillecity.com.au/our-community/animals-and-pets/dog-ownership-rules-and-management"
+              >Dog Management - City of Melville</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://southperth.wa.gov.au/residents/services/dog-exercise-areas"
+              >Dog Exercise Areas - City of South Perth</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.eastfremantle.wa.gov.au/documents/690/dog-exercise-area-map"
+              >East Fremantle Dog Map</a
+            >
+            (PDF)
+          </li>
+        </ul>
+        <p>
+          <strong>Contact Information:</strong>
+          <a
+            href="https://walga.asn.au/your-local-government/local-government-directory"
+            >WALGA Local Government Directory 2024</a
+          >
+        </p>
+      </details>
+    </div>
+
+    <!-- Nav script -->
+    <script type="module" src="./nav.js"></script>
+  </body>
+</html>
