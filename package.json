@@ -1,6 +1,7 @@
 {
   "name": "parkhound",
   "version": "1.0.0",
+  "homepage": "https://wldwd.github.io/PARKHOUND",
   "scripts": {
     "start": "vite",
     "build": "vite build",
